@@ -8,13 +8,7 @@
 
     public override void GenerarInforme()
     {
-        Console.WriteLine("Informe 1: Jugadores con vida mayor a 0");
-        foreach (Ficha jugador in FichaDatos)
-        {
-            if (jugador.Vida > 0)
-            {
-                Console.WriteLine($"Nombre: {jugador.Nombre}, Vida: {jugador.Vida}, Tipo: {jugador.Tipo}");
-            }
-        }
+        var res = FichaDatos.Where(j => j.Vida == 0).Select(j => j.Nombre).ToList();
+        Console.WriteLine($"Derrotados: {res.Count}");   
     }
 }
