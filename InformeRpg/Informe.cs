@@ -1,8 +1,7 @@
 ﻿public abstract class Informe
 {
-    
 
-    public Informe(List<Ficha> fichaDatos)
+    public Informe(IEnumerable<Ficha> fichaDatos)
     {
         
     }

@@ -1,20 +1,18 @@
 ﻿public class Informe1 : Informe
 {
-    public List<Ficha> FichaDatos { get; }
-    public Informe1(List<Ficha> fichaDatos) : base(fichaDatos)
+    public IEnumerable<Ficha> FichaDatos { get; }
+    public Informe1(IEnumerable<Ficha> fichaDatos) : base(fichaDatos)
     {
         FichaDatos = fichaDatos;
     }
 
     public override void GenerarInforme()
     {
-     
-
-        bool vacia = FichaDatos.Count == 0;
+        bool vacia = FichaDatos.Count() == 0;
         double media = 0;
         int derrotados = 0;
         var resContar = FichaDatos.GroupBy(j => j.Tipo).Select(g => new { Tipo = g.Key, Cantidad = g.Count() }).ToList();
-
+        
         if (!vacia)
         {
             var resMedia = FichaDatos.Average(j => j.Vida);
